@@ -1,3 +1,9 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -19,7 +25,8 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 10px; /* Changed per doc */
-	font: inherit;
+	/*font: inherit;*/
+    
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -52,33 +59,34 @@ body {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-columns: [first] 1fr [second] 4fr;
-    grid-template-rows: [one] 1fr [two] 4fr;
-    font-family: Arial, Helvetica, sans-serif;
+    grid-template-columns: [first] 1fr [second] 3.75fr;
+    grid-template-rows: [one] 1fr [two] 3.75fr;
+    font-family: "Roboto"/*, Arial, Helvetica, sans-serif*/;
 }
 
-.main {
-    border: 2px dashed black;
-}
 
 .side-panel {
     grid-area: 1 / 1 / 3 / 2;
-    background-color: rgb(55, 139, 248);
+    background-color: #0ea5e9;
     color: white;
+
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: flex-start;
-    
-
 }
 
 .header {
     grid-area: 1 / 2 / 2 / 3;
     background-color: green;
     display: grid;
-    grid-template-columns: [first] 2fr [second] 1fr;
-    grid-template-rows: [one] 1fr [two] 1fr;
+
+    grid-template-columns: [first] 2fr [second] 1.25fr;
+    grid-template-rows: [one] 1fr [two] 2fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    background-color: white;
+    padding: 1rem 4rem 1rem 4rem;
+    box-shadow: 0rem .3rem .3rem rgba(0,0,0,35%);
 }
 
 .content {
@@ -89,32 +97,53 @@ body {
     grid-template-rows: [one] 1fr [two] 1fr;
 }
 
-.main > div {
-    border: 2px solid blue;
-    margin: 1rem 1rem 1rem 1rem; /*Update margins*/
-}
-/*Side Panel Styles*/
 
-.side-panel div {
-    display: flex;
+/*Side Panel Main Div Styles*/
+.side-logo {
+    display: grid;
+    grid-template-columns: [first] 1fr;
+    grid-template-rows: repeat(1,1fr);
+    margin: 1.5rem 1.5rem 3rem 1.5rem;
 }
 
-.side-panel > div {
-    flex-direction: column;
-    align-items: left;
+.side-nav-links-top {
+    display: grid;
+    grid-template-columns: [first] 1fr;
+    grid-template-rows: repeat(6,1fr);
+    row-gap: 2.5rem;
+    margin: 2rem 1.5rem 4rem 3rem;
+}
+
+.side-nav-links-bottom {
+    display: grid;
+    grid-template-columns: [first] 1fr;
+    grid-template-rows: repeat(3,1fr);
+    row-gap: 2.5rem;
+    margin: 1.5rem 1.5rem 1.5rem 3rem;
+}
+
+/*Side Panel Sub Styles*/
+.side-panel img {
+    place-self: center;
+    height: 2.25rem;
+}
+.side-panel p {
+    place-self: center;
+    padding-left: 2rem;
+    font-size: 2.25rem;
 }
 
 .side-panel > div > div {
-    flex-direction: row;
+    display: flex;
     align-items: center;
 }
 
-.side-panel img {
-height: 1.5rem;
-width: auto;
+.side-logo img {
+    height: 5rem;
 }
 
-.side-panel p {
+h1 {
+    font-size: 3rem;
     margin-left: 1rem;
 }
 
@@ -130,33 +159,30 @@ width: auto;
 
 .header div:nth-child(1) {
     grid-area: 1 / 1 / 2 / 2;
-    background-color: aqua;
+    display: flex;
+    align-items: center;
 }
 
-input[type="search"] {
-    flex: 1;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
 
 .header div:nth-child(2) {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    justify-content: flex-end;
+    margin-right: 3rem;
 }
 
 .header div:nth-child(3) {
     grid-area: 2 / 1 / 3 / 2;
-    background-color: greenyellow;
     display: grid;
     grid-template-columns: [first] 1fr [second] 6fr;
     grid-template-rows: [one] 1fr [two] 1fr;
+    padding: 2rem 1rem 1rem 1rem;
 }
 
 .header div:nth-child(4) {
     grid-area: 2 / 2 / 3 / 3;
-    background-color: yellow;
 }
 
 .bottom-account img {
@@ -169,6 +195,26 @@ input[type="search"] {
 
 .bottom-account p:nth-child(3) {
     grid-area: 2 / 2 / 3 / 3;
+}
+
+div[class*="top"] img:first-child {
+    height: 2.5rem;
+}
+
+.top-account p {
+    font-size: 1.75rem;
+}
+
+.bottom-account img {
+    align-self: center;
+    height: 7rem;
+}
+
+.bottom-account p:nth-child(2) {
+    font-size: 1.5rem;
+}
+.bottom-account p:nth-child(3) {
+    font-size: 2.5rem;
 }
 
 
@@ -239,12 +285,30 @@ input[type="search"] {
 
 /*Element Specific Styles*/
 
-h1 {
-    font-size: 1.5rem;
+input[type="search"] {
+    flex: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 3rem;
+    border: none;
+    border-radius: 1.5rem;
+    background-color: rgb(230, 230, 230);
 }
+
 
 hr {
     width: 100%;
     border-top: 2px solid black;
     margin: 0px;
+}
+
+button {
+    background-color: #0ea5e9;
+    font-size: 1.75rem;
+    padding: 1rem 2rem 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    color: white;
 }
